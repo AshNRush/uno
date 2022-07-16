@@ -7,8 +7,8 @@ namespace Windows.Storage
 	#endif
 	public  partial class ApplicationData : global::System.IDisposable
 	{
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder LocalFolder
 		{
 			get
@@ -17,8 +17,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.ApplicationDataContainer LocalSettings
 		{
 			get
@@ -27,8 +27,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder RoamingFolder
 		{
 			get
@@ -37,8 +37,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.ApplicationDataContainer RoamingSettings
 		{
 			get
@@ -47,8 +47,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  ulong RoamingStorageQuota
 		{
 			get
@@ -57,8 +57,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder TemporaryFolder
 		{
 			get
@@ -67,8 +67,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  uint Version
 		{
 			get
@@ -77,8 +77,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder LocalCacheFolder
 		{
 			get
@@ -87,8 +87,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder SharedLocalFolder
 		{
 			get
@@ -97,8 +97,8 @@ namespace Windows.Storage
 			}
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public static global::Windows.Storage.ApplicationData Current
 		{
 			get
@@ -136,8 +136,8 @@ namespace Windows.Storage
 		// Forced skipping of method Windows.Storage.ApplicationData.TemporaryFolder.get
 		// Forced skipping of method Windows.Storage.ApplicationData.DataChanged.add
 		// Forced skipping of method Windows.Storage.ApplicationData.DataChanged.remove
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  void SignalDataChanged()
 		{
 			global::Windows.Foundation.Metadata.ApiInformation.TryRaiseNotImplemented("Windows.Storage.ApplicationData", "void ApplicationData.SignalDataChanged()");
@@ -145,15 +145,15 @@ namespace Windows.Storage
 		#endif
 		// Forced skipping of method Windows.Storage.ApplicationData.RoamingStorageQuota.get
 		// Forced skipping of method Windows.Storage.ApplicationData.LocalCacheFolder.get
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Storage.StorageFolder GetPublisherCacheFolder( string folderName)
 		{
 			throw new global::System.NotImplementedException("The member StorageFolder ApplicationData.GetPublisherCacheFolder(string folderName) is not implemented in Uno.");
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  global::Windows.Foundation.IAsyncAction ClearPublisherCacheFolderAsync( string folderName)
 		{
 			throw new global::System.NotImplementedException("The member IAsyncAction ApplicationData.ClearPublisherCacheFolderAsync(string folderName) is not implemented in Uno.");
@@ -167,16 +167,16 @@ namespace Windows.Storage
 			global::Windows.Foundation.Metadata.ApiInformation.TryRaiseNotImplemented("Windows.Storage.ApplicationData", "void ApplicationData.Dispose()");
 		}
 		#endif
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public static global::Windows.Foundation.IAsyncOperation<global::Windows.Storage.ApplicationData> GetForUserAsync( global::Windows.System.User user)
 		{
 			throw new global::System.NotImplementedException("The member IAsyncOperation<ApplicationData> ApplicationData.GetForUserAsync(User user) is not implemented in Uno.");
 		}
 		#endif
 		// Forced skipping of method Windows.Storage.ApplicationData.Current.get
-		#if false || false || NET461 || false || false || false || false
-		[global::Uno.NotImplemented("NET461")]
+		#if false || false || false || false || false || false || false
+		[global::Uno.NotImplemented]
 		public  event global::Windows.Foundation.TypedEventHandler<global::Windows.Storage.ApplicationData, object> DataChanged
 		{
 			[global::Uno.NotImplemented("NET461")]

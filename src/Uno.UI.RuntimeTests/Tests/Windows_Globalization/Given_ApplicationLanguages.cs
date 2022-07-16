@@ -3,6 +3,7 @@ using System.Linq;
 using Windows.Globalization;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Windows.Storage;
 
 namespace Uno.UI.RuntimeTests.Tests.Windows_Globalization
 {
@@ -12,7 +13,7 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_Globalization
 		[TestCleanup]
 		public void CleanUp()
 		{
-			ApplicationLanguages.PrimaryLanguageOverride = null;
+			ApplicationLanguages.PrimaryLanguageOverride = string.Empty;
 		}
 
 		[TestMethod]
@@ -23,6 +24,8 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_Globalization
 			ApplicationLanguages.Languages.First().Should().Be("zh-Hans-CN");
 			CultureInfo.CurrentCulture.Name.Should().BeOneOf("zh-CN", "zh-Hans-CN");
 			CultureInfo.CurrentUICulture.Name.Should().BeOneOf("zh-CN", "zh-Hans-CN");
+
+			ApplicationData.Current.LocalSettings.Values["__Uno.PrimaryLanguageOverride"].Should().Be("ch-Hans-CN");
 		}
 
 		[TestMethod]
@@ -33,6 +36,8 @@ namespace Uno.UI.RuntimeTests.Tests.Windows_Globalization
 			ApplicationLanguages.Languages.First().Should().Be("fr-Latn-CA");
 			CultureInfo.CurrentCulture.Name.Should().BeOneOf("fr-CA", "fr-Latn-CA");
 			CultureInfo.CurrentUICulture.Name.Should().BeOneOf("fr-CA", "fr-Latn-CA");
+
+			ApplicationData.Current.LocalSettings.Values["__Uno.PrimaryLanguageOverride"].Should().Be("fr-Latn-CA");
 		}
 	}
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Uno;
 using Uno.UI;
 using Uno.Diagnostics.Eventing;
@@ -8,6 +9,7 @@ using Windows.Foundation.Metadata;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel;
+using Windows.Globalization;
 using Uno.Helpers.Theming;
 using Windows.UI.ViewManagement;
 using Uno.Extensions;
@@ -120,7 +122,7 @@ namespace Windows.UI.Xaml
 		{
 			if (InternalRequestedTheme == null)
 			{
-				// just cache the theme, but do not notify about a change unnecessarily	
+				// just cache the theme, but do not notify about a change unnecessarily
 				InternalRequestedTheme = GetDefaultSystemTheme();
 			}
 		}
@@ -238,6 +240,17 @@ namespace Windows.UI.Xaml
 
 		public static void Start(global::Windows.UI.Xaml.ApplicationInitializationCallback callback)
 		{
+			var primaryLanguageOverride = ApplicationLanguages.PrimaryLanguageOverride;
+			if (primaryLanguageOverride.Length > 0)
+			{
+				var culture = new CultureInfo(primaryLanguageOverride);
+				if (culture.ThreeLetterWindowsLanguageName != "ZZZ")
+				{
+					CultureInfo.CurrentCulture = culture;
+					CultureInfo.CurrentUICulture = culture;
+				}
+			}
+
 			StartPartial(callback);
 		}
 
@@ -344,7 +357,7 @@ namespace Windows.UI.Xaml
 			var suspendingEventArgs = new SuspendingEventArgs(suspendingOperation);
 
 			Suspending?.Invoke(this, suspendingEventArgs);
-			CoreApplication.RaiseSuspending(suspendingEventArgs);			
+			CoreApplication.RaiseSuspending(suspendingEventArgs);
 			var completedSynchronously = suspendingOperation.DeferralManager.EventRaiseCompleted();
 
 #if !__IOS__ && !__ANDROID__

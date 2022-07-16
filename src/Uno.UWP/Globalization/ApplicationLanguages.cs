@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using Uno.UI;
+using Windows.Storage;
 
 namespace Windows.Globalization
 {
 	public static partial class ApplicationLanguages
 	{
-		private static string _primaryLanguageOverride;
+		private static string _primaryLanguageOverride = string.Empty;
+		private const string PrimaryLanguageOverrideSettingKey = "__Uno.PrimaryLanguageOverride";
 
 		static ApplicationLanguages()
 		{
@@ -18,11 +19,37 @@ namespace Windows.Globalization
 
 		public static string PrimaryLanguageOverride
 		{
-			get => _primaryLanguageOverride;
+			get
+			{
+				if (_primaryLanguageOverride.Length == 0 &&
+				    ApplicationData.Current.LocalSettings.Values.TryGetValue(PrimaryLanguageOverrideSettingKey, out var savedValue) &&
+				    savedValue is string stringSavedValue)
+				{
+					_primaryLanguageOverride = stringSavedValue;
+				}
+
+				return _primaryLanguageOverride;
+			}
 			set
 			{
+				if (value is null)
+				{
+					throw new ArgumentNullException(nameof(value), "Value cannot be null.");
+				}
+
+				try
+				{
+					_ = new CultureInfo(value);
+				}
+				catch (CultureNotFoundException)
+				{
+					throw new ArgumentException("Value does not fall within the expected range.");
+				}
+
 				_primaryLanguageOverride = value;
 				ApplyLanguages();
+
+				ApplicationData.Current.LocalSettings.Values[PrimaryLanguageOverrideSettingKey] = _primaryLanguageOverride;
 			}
 		}
 
